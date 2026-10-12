@@ -6,6 +6,7 @@ import DeviceFrames from './components/DeviceFrames';
 import TabBar from './components/TabBar';
 import Splash from './screens/Splash';
 import Auth from './screens/Auth';
+import './App.css'
 function AppInner(){
  const [device,setDevice]=useState('mobile'),[screen,setScreen]=useState('Splash'),[previous,setPrevious]=useState('Home'),[user,setUser]=useState('Alex'),[selected,setSelected]=useState(products[0]),[galleryIndex,setGalleryIndex]=useState(0),[size,setSize]=useState(38),[color,setColor]=useState(products[0].color),[qty,setQty]=useState(1),[query,setQuery]=useState(''),[category,setCategory]=useState('All'),[modal,setModal]=useState(''),[payment,setPayment]=useState('Card'),[address,setAddress]=useState('24 Rosewood Street, Cebu City'),[order,setOrder]=useState(null),[toast,setToast]=useState('');
  const {cart,wishlist,add,update,remove,toggleWish,cartCount,subtotal}=useCart();
