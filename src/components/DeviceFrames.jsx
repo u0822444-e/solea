@@ -1,0 +1,2 @@
+import { MonitorSmartphone, Tablet, Smartphone } from 'lucide-react';
+export default function DeviceFrames({device,setDevice}) { return <div className="device-switch" aria-label="Preview device"><button className={device==='mobile'?'active':''} onClick={()=>setDevice('mobile')}><Smartphone size={16}/> Mobile</button><button className={device==='ipad'?'active':''} onClick={()=>setDevice('ipad')}><Tablet size={16}/> iPad</button></div> }

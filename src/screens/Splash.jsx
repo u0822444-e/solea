@@ -1,0 +1,2 @@
+import { Footprints } from 'lucide-react';
+export default function Splash({onContinue}) { return <div className="splash-screen"><div className="splash-mark"><span className="brand-symbol"><Footprints size={34}/></span><h1>SOLEA</h1><p>STEP INTO YOUR STYLE</p></div><div className="loading-line"><span/></div><button className="splash-continue" onClick={onContinue}>Get started <span>→</span></button></div> }
