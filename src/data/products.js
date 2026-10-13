@@ -77,7 +77,7 @@ export const products = [
     rating: 4.8,
     shade: 'Warm nude',
     description: 'A soft-matte lipstick in an easy everyday shade.',
-    image: `${import.meta.env.BASE_URL}image/velvet-matte-lipstick.png`
+    image: `${import.meta.env.BASE_URL}image/velvet-matte-lipstick.webp`
   },
   {
     id: 8,
@@ -111,7 +111,7 @@ export const products = [
     rating: 4.6,
     shade: 'Soft black',
     description: 'A simple finishing touch for defined-looking lashes.',
-    image: `${import.meta.env.BASE_URL}image/lash-day-mascara.png`
+    image: `${import.meta.env.BASE_URL}image/lash-day-mascara.webp`
   },
   {
     id: 11,
