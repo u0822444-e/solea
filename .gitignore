@@ -1,1 +1,8 @@
-node_modules/\ndist/\n.vite/\n.env\n.env.*\n!.env.example\n.DS_Store\nThumbs.db\n
+node_modules/
+dist/
+.vite/
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
