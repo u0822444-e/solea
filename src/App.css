@@ -65,3 +65,32 @@
 .splash-continue{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;max-width:380px;min-height:52px;margin:23px 0 0;border:0;border-radius:15px;background:var(--rose);color:white;font-size:12px;font-weight:700;box-shadow:0 9px 24px #a847641f}
 .splash-footer{font-size:8px;letter-spacing:2px;color:#9e7a84;font-weight:800;margin:19px 0 0}
 @media(prefers-reduced-motion:no-preference){.splash-content{animation:splash-arrive .65s ease-out both}.splash-image{animation:splash-arrive .8s .08s ease-out both}@keyframes splash-arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}}
+
+
+/* Responsive app frame: keep the bottom navigation in place while content scrolls. */
+html, body, #root { height: 100%; min-height: 100%; }
+.prototype-root { height: 100dvh; min-height: 0; overflow: hidden; }
+.app-shell { height: 100dvh; min-height: 0; overflow: hidden; }
+.app-shell > .screen-content { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior-y: contain; }
+.app-shell > .tab-bar { flex: 0 0 auto; position: relative; z-index: 10; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
+/* On Explore, the title/search/filter area remains fixed; only the product results scroll. */
+.app-shell > .screen-content:has(.explore-page) { overflow: hidden; }
+.explore-page { height: 100%; min-height: 0; display: flex; flex-direction: column; overflow: hidden; padding-bottom: 10px; }
+.explore-page > .screen-header, .explore-page > .search-field, .explore-page > .category-pills, .explore-page > .results-line { flex: 0 0 auto; }
+.explore-page > .product-grid { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior-y: contain; align-content: start; padding: 0 2px 26px 0; scrollbar-width: thin; scrollbar-color: #e6bdc7 transparent; }
+.explore-page > .product-grid::-webkit-scrollbar { width: 5px; }
+.explore-page > .product-grid::-webkit-scrollbar-thumb { background: #e6bdc7; border-radius: 99px; }
+/* Show the entire product rather than cropping packaging or bottle edges. */
+.product-image { background: #fff; }
+.product-image img { object-fit: contain; padding: 7px; }
+.detail-gallery { background: #fff; }
+.detail-gallery img { object-fit: contain; padding: 10px; }
+.splash-loading { display:flex; align-items:center; justify-content:center; gap:9px; color:var(--rose); font-size:11px; margin:23px 0 0; }
+.splash-spinner { animation: solea-spin 1s linear infinite; }
+.splash-dots { width:12px; overflow:hidden; animation: solea-dots 1s steps(4,end) infinite; }
+.splash-skip { display:flex; align-items:center; gap:6px; margin-top:13px; border:0; background:transparent; color:#8e6873; font-size:10px; padding:5px 10px; }
+@keyframes solea-spin { to { transform:rotate(360deg); } }
+@keyframes solea-dots { 0% { width:0; } 100% { width:12px; } }
+@media (min-width:700px) { .explore-page { padding-bottom:14px; } .explore-page > .product-grid { gap:20px 24px; } }
+@media (max-width:699px) { .tab-bar { padding-bottom: max(10px, env(safe-area-inset-bottom)); } .explore-page { padding-bottom:8px; } .explore-page > .screen-header { margin-bottom:14px; } .explore-page > .search-field { margin-bottom:12px; } .explore-page > .category-pills { margin-bottom:12px; } .explore-page > .results-line { margin-bottom:10px; } .product-image img { padding:5px; } }
+@media (prefers-reduced-motion: reduce) { .splash-spinner, .splash-dots { animation:none; } }
